@@ -12,34 +12,35 @@ import com.atguigu.gmall.bean.UmsMemberReceiveAddress;
 import com.atguigu.gmall.service.UserService;
 
 @Controller
-public class UserController{
+public class UserController {
 
-	@Autowired
-	UserService userService;
+    @Autowired
+    UserService userService;
 
-	@RequestMapping("getReceiveAddressByMemberId")
-	public List<com.atguigu.gmall.bean.UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId){
+    @RequestMapping("getReceiveAddressByMemberId")
+    public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId){
 
-		List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = userService.getReceiveAddressByMemberId(memberId);
+        List<UmsMemberReceiveAddress> umsMemberReceiveAddresses = userService.getReceiveAddressByMemberId(memberId);
 
-		return umsMemberReceiveAddresses;
-	}
+        return umsMemberReceiveAddresses;
+    }
 
 
-	@RequestMapping("getAllUser")
-	@ResponseBody
-	public List<UmsMember> getAllUser(){
+    @RequestMapping("getAllUser")
+    @ResponseBody
+    public List<UmsMember> getAllUser(){
 
-		List<UmsMember> umsMembers = userService.getAllUser();
+        List<UmsMember> umsMembers = userService.getAllUser();
 
-		return umsMembers;
-	}
+        return umsMembers;
+    }
 
-	@RequestMapping("index")
-	@ResponseBody
-	public String index(){
-		return "hello user";
-	}
+    @RequestMapping("index")
+    @ResponseBody
+    public String index(){
+        return "hello user";
+    }
+
 
 
 }
