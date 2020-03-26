@@ -31,7 +31,6 @@ public class UserController {
     public List<UmsMember> getAllUser(){
 
         List<UmsMember> umsMembers = userService.getAllUser();
-
         return umsMembers;
     }
 

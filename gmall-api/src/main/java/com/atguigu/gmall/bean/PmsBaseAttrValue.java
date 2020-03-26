@@ -1,9 +1,10 @@
 package com.atguigu.gmall.bean;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Transient;
-import java.io.Serializable;
 
 /**
  * @param

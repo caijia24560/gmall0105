@@ -1,24 +1,22 @@
 package com.atguigu.gmall.bean;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Id;
 
 /**
  * @param
  * @return
  */
-public class PmsBaseCatalog1 implements Serializable {
+public class PmsBaseSaleAttr implements Serializable {
+
     @Id
     @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-    @Column
-    private String name;
+    String id ;
 
-    @Transient
-    private List<PmsBaseCatalog2> catalog2s;
+    @Column
+    String name;
 
     public String getId() {
         return id;
@@ -36,4 +34,3 @@ public class PmsBaseCatalog1 implements Serializable {
         this.name = name;
     }
 }
-
