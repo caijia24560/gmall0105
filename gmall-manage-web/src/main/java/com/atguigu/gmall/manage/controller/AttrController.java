@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.atguigu.gmall.bean.PmsBaseAttrInfo;
+import com.atguigu.gmall.bean.PmsBaseAttrValue;
+import com.atguigu.gmall.bean.PmsBaseSaleAttr;
 import com.atguigu.gmall.service.AttrService;
 
 @Controller
@@ -19,18 +21,33 @@ public class AttrController  {
     @Reference
     AttrService attrService;
 
+	@RequestMapping("baseSaleAttrList")
+	@ResponseBody
+	public List<PmsBaseSaleAttr> baseSaleAttrList(){
+
+		List<PmsBaseSaleAttr> pmsBaseSaleAttrs = attrService.baseSaleAttrList();
+		return pmsBaseSaleAttrs;
+	}
+
     @RequestMapping("saveAttrInfo")
     @ResponseBody
     public String saveAttrInfo(@RequestBody PmsBaseAttrInfo pmsBaseAttrInfo){
-
-        return "success";
+		return attrService.saveAttrInfo(pmsBaseAttrInfo);
     }
 
-    @RequestMapping("attrInfoList")
+	@RequestMapping("getAttrValueList")
     @ResponseBody
-    public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id){
+    public List<PmsBaseAttrValue> getAttrValueList(String attrId){
 
-        List<PmsBaseAttrInfo> pmsBaseAttrInfos = attrService.attrInfoList(catalog3Id);
+        List<PmsBaseAttrValue> pmsBaseAttrInfos = attrService.getAttrValueList(attrId);
         return pmsBaseAttrInfos;
     }
+
+	@RequestMapping("attrInfoList")
+	@ResponseBody
+	public List<PmsBaseAttrInfo> attrInfoList(String catalog3Id){
+
+		List<PmsBaseAttrInfo> pmsBaseAttrInfos = attrService.attrInfoList(catalog3Id);
+		return pmsBaseAttrInfos;
+	}
 }
