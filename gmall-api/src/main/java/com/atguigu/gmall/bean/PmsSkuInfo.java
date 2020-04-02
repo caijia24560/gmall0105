@@ -17,6 +17,9 @@ public class PmsSkuInfo implements Serializable {
     @Column
     String id;
 
+    @Column
+	String productId;
+
     @Transient
     String spuId;
 
@@ -47,9 +50,15 @@ public class PmsSkuInfo implements Serializable {
     @Transient
     List<PmsSkuSaleAttrValue> skuSaleAttrValueList;
 
+	public String getProductId(){
+		return productId;
+	}
 
+	public void setProductId(String productId){
+		this.productId = productId;
+	}
 
-    public String getId() {
+	public String getId() {
         return id;
     }
 

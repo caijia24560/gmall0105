@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.atguigu.gmall.bean.PmsSkuInfo;
-import com.atguigu.gmall.service.PmsSkuService;
+import com.atguigu.gmall.service.SkuService;
 
 /**
  * @author cai
@@ -19,12 +19,12 @@ import com.atguigu.gmall.service.PmsSkuService;
 public class SkuController{
 
 	@Reference
-	PmsSkuService pmsSkuService;
+	SkuService skuService;
 
 	@RequestMapping("saveSkuInfo")
 	@ResponseBody
 	public String saveSkuInfo(@RequestBody PmsSkuInfo pmsSkuInfo){
-       pmsSkuService.saveSkuInfo(pmsSkuInfo);
+       skuService.saveSkuInfo(pmsSkuInfo);
 
 		return "success";
 	}
